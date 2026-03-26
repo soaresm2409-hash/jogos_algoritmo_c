@@ -3,34 +3,25 @@
 #include <ctype.h>
 #include <time.h>
 
-
 int main(){
 	
-// --- PROTÓTIPOS DAS FUNÇÕES ---
-void menuPrincipal();
-void jogoPerguntaResposta();
-void jogoCobraNaCaixa();
-void jogoGousmasWar();
+int menuPrincipal();
+int jogoPerguntaResposta();
+int jogoCobraNaCaixa();
+int jogoGousmasWar();
 
-// =========================================================
-// FUNÇÃO PRINCIPAL: O CORAÇÃO DO ARCADE
-// =========================================================
     int opcao;
-    // DO-WHILE: O menu sempre aparece pelo menos uma vez
     do {
-        printf("\n=================================");
         printf("\n       ARCADE DE ALGORITMOS      ");
-        printf("\n=================================");
         printf("\n1: Pergunta e Resposta");
         printf("\n2: Cobra na Caixa!");
         printf("\n3: Gousmas War");
         printf("\n4: Sair");
         printf("\nEscolha uma opcao: ");
         
-        // WHILE: Validação para garantir que o usuário digite 1, 2, 3 ou 4
         while (scanf("%d", &opcao) != 1 || opcao < 1 || opcao > 4) {
             printf("Opcao invalida! Digite de 1 a 4: ");
-            while(getchar() != '\n'); // Limpa o lixo do teclado (buffer)
+            while(getchar() != '\n'); 
         }
 
         if (opcao == 1) {
@@ -48,10 +39,8 @@ void jogoGousmasWar();
     return 0;
 }
 
-// =========================================================
-// JOGO 1: PERGUNTA E RESPOSTA (Foco em FOR e IF/ELSE)
-// =========================================================
-void jogoPerguntaResposta() {
+// JOGO 1: PERGUNTA E RESPOSTA 
+int jogoPerguntaResposta() {
     int jogarNovamente;
     do {
         printf("\n--- JOGO 1: CAPITAIS DO MUNDO ---\n");
@@ -91,10 +80,8 @@ void jogoPerguntaResposta() {
     } while (jogarNovamente == 1);
 }
 
-// =========================================================
-// JOGO 2: COBRA NA CAIXA (Foco em RAND e WHILE)
-// =========================================================
-void jogoCobraNaCaixa() {
+// JOGO 2: COBRA NA CAIXA 
+int jogoCobraNaCaixa() {
     int jogarNovamente;
     srand(time(NULL));
     do {
@@ -130,10 +117,10 @@ void jogoCobraNaCaixa() {
     } while (jogarNovamente == 1);
 }
 
-// =========================================================
-// JOGO 3: GOUSMAS WAR (Foco em ESTADOS e LOGICA DE FURIA)
-// =========================================================
-void jogoGousmasWar() {
+
+// JOGO 3: GOUSMAS WAR 
+
+int jogoGousmasWar() {
     int jogarNovamente;
     do {
         printf("\n--- JOGO 3: GOUSMAS WAR ---\n");
