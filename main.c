@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <time.h>
 
 int main(){
@@ -57,7 +56,6 @@ int jogoPerguntaResposta() {
             do {
                 printf("\nSua resposta (A-D): ");
                 scanf(" %c", &resp);
-                resp = toupper(resp);
             } while (resp < 'A' || resp > 'D');
 
             if ((i==1 && resp=='B') || (i==2 && resp=='C') || (i==3 && resp=='C') || (i==4 && resp=='A') || (i==5 && resp=='B')) {
@@ -71,9 +69,9 @@ int jogoPerguntaResposta() {
         if (acertos == 5) {
             printf("\nPARABENSS!Voce teve um desempenho perfeito!");
         } else if (acertos >= 3) {
-            printf("\nMuito bom!.");
+            printf("\nMuito bom!mas tente melhorar na proxima vez.");
         } else {
-            printf("\nBom treino!Tente melhorar na proxima vez.");
+            printf("\nBom treino!.");
         }
         printf("\n1: Jogar de novo | 0: Menu: ");
         scanf("%d", &jogarNovamente);
