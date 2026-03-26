@@ -232,148 +232,148 @@ int jogoPerguntaResposta() {
 int jogoGousmasWar() 
 {
     int jogarNovamente;
+
     do 
     {
         printf("\n--- JOGO 3: GOUSMAS WAR ---\n");
         
-        int mao1J1 = 1;
-        int mao2J1 = 1;
-        
-        int mao1J2 = 1;
-        int mao2J2 = 1;
-
+        //jogador1
+        int gousma1J1 = 1;
+        int gousma2J1 = 1;
+        //jogador 2
+        int gousma1J2 = 1;
+        int gousma2J2 = 1;
         int turno = 1;
         int rodando = 1;
 
         while (rodando == 1) 
         {
-            printf("\n------------------------------");
-            printf("\nJ1: [%d][%d] | J2: [%d][%d]", mao1J1, mao2J1, mao1J2, mao2J2);
+            printf("\n----------------------------------");
+            printf("\nJ1: [%d][%d] | J2: [%d][%d]", gousma1J1, gousma2J1, gousma1J2, gousma2J2);
             printf("\nVez do Jogador: %d", turno);
             
             int acao; 
-            printf("\n1 - Atacar");
-            printf("\n2 - Dividir Pontos");
+            printf("\n1 - Atacar (Crescer a gousma do rival)");
+            printf("\n2 - Dividir (Passar pontos entre suas gousmas)");
             printf("\nEscolha sua acao: "); 
             scanf("%d", &acao);
 
-            
             if (acao == 1) 
             {
-                int qualMaoMinha, qualMaoAlvo;
-                printf("Qual mao voce vai usar? (1 ou 2): ");
-                scanf("%d", &qualMaoMinha);
-                printf("Qual mao do alvo quer atacar? (1 ou 2): ");
-                scanf("%d", &qualMaoAlvo);
+                int qualMinha, qualAlvo;
+                printf("Qual gousma sua vai usar? (1 ou 2): ");
+                scanf("%d", &qualMinha);
+                printf("Qual gousma do alvo quer atacar? (1 ou 2): ");
+                scanf("%d", &qualAlvo);
 
                 if (turno == 1) 
                 {
-
-                    if (qualMaoMinha == 1 && mao1J1 > 0 && qualMaoAlvo == 1 && mao1J2 > 0) 
+                    
+                    if (qualMinha == 1 && gousma1J1 > 0 && qualAlvo == 1 && gousma1J2 > 0) 
                     {
-                        mao1J2 = mao1J2 + mao1J1;
+                        gousma1J2 = gousma1J2 + gousma1J1;
                     }
-                    else if (qualMaoMinha == 1 && mao1J1 > 0 && qualMaoAlvo == 2 && mao2J2 > 0) 
+                    else if (qualMinha == 1 && gousma1J1 > 0 && qualAlvo == 2 && gousma2J2 > 0) 
                     {
-                        mao2J2 = mao2J2 + mao1J1;
+                        gousma2J2 = gousma2J2 + gousma1J1;
                     }
-                    else if (qualMaoMinha == 2 && mao2J1 > 0 && qualMaoAlvo == 1 && mao1J2 > 0) 
+                    else if (qualMinha == 2 && gousma2J1 > 0 && qualAlvo == 1 && gousma1J2 > 0) 
                     {
-                        mao1J2 = mao1J2 + mao2J1;
+                        gousma1J2 = gousma1J2 + gousma2J1;
                     }
-                    else if (qualMaoMinha == 2 && mao2J1 > 0 && qualMaoAlvo == 2 && mao2J2 > 0) 
+                    else if (qualMinha == 2 && gousma2J1 > 0 && qualAlvo == 2 && gousma2J2 > 0) 
                     {
-                        mao2J2 = mao2J2 + mao2J1;
+                        gousma2J2 = gousma2J2 + gousma2J1;
                     }
                     else 
                     {
-                        printf("\nAcao invalida! Tente de novo.\n");
+                        printf("\nAcao invalida! Essa gousma pode estar morta.\n");
                         continue; 
                     }
                 } 
                 else 
                 {
-                    if (qualMaoMinha == 1 && mao1J2 > 0 && qualMaoAlvo == 1 && mao1J1 > 0) 
+                    
+                    if (qualMinha == 1 && gousma1J2 > 0 && qualAlvo == 1 && gousma1J1 > 0) 
                     {
-                        mao1J1 = mao1J1 + mao1J2;
+                        gousma1J1 = gousma1J1 + gousma1J2;
                     }
-                    else if (qualMaoMinha == 1 && mao1J2 > 0 && qualMaoAlvo == 2 && mao2J1 > 0) 
+                    else if (qualMinha == 1 && gousma1J2 > 0 && qualAlvo == 2 && gousma2J1 > 0) 
                     {
-                        mao2J1 = mao2J1 + mao1J2;
+                        gousma2J1 = gousma2J1 + gousma1J2;
                     }
-                    else if (qualMaoMinha == 2 && mao2J2 > 0 && qualMaoAlvo == 1 && mao1J1 > 0) 
+                    else if (qualMinha == 2 && gousma2J2 > 0 && qualAlvo == 1 && gousma1J1 > 0) 
                     {
-                        mao1J1 = mao1J1 + mao2J2;
+                        gousma1J1 = gousma1J1 + gousma2J2;
                     }
-                    else if (qualMaoMinha == 2 && mao2J2 > 0 && qualMaoAlvo == 2 && mao2J1 > 0) 
+                    else if (qualMinha == 2 && gousma2J2 > 0 && qualAlvo == 2 && gousma2J1 > 0) 
                     {
-                        mao2J1 = mao2J1 + mao2J2;
+                        gousma2J1 = gousma2J1 + gousma2J2;
                     }
                     else 
                     {
-                        printf("\nAcao invalida! Tente de novo.\n");
+                        printf("\nAcao invalida! Essa gousma pode estar morta.\n");
                         continue; 
                     }
                 }
             } 
+            
             else if (acao == 2) 
             {
-                int doar, pontos; 
-                printf("Mao doadora (1 ou 2) e quantos pontos passar: "); 
-                scanf("%d %d", &doar, &pontos);
+                int doa, pts; 
+                printf("Gousma doadora (1 ou 2) e quantos pontos passar: "); 
+                scanf("%d %d", &doa, &pts);
 
                 if (turno == 1) 
                 {
-                    if (doar == 1 && mao1J1 > pontos && pontos > 0) 
+                    if (doa == 1 && gousma1J1 > pts && pts > 0) 
                     { 
-                        mao1J1 = mao1J1 - pontos; 
-                        mao2J1 = mao2J1 + pontos; 
+                        gousma1J1 = gousma1J1 - pts; 
+                        gousma2J1 = gousma2J1 + pts; 
                     }
-                    else if (doar == 2 && mao2J1 > pontos && pontos > 0) 
+                    else if (doa == 2 && gousma2J1 > pts && pts > 0) 
                     { 
-                        mao2J1 = mao2J1 - pontos; 
-                        mao1J1 = mao1J1 + pontos; 
+                        gousma2J1 = gousma2J1 - pts; 
+                        gousma1J1 = gousma1J1 + pts; 
                     }
                     else 
                     { 
-                        printf("\nNao pode dividir assim!\n"); 
+                        printf("\nErro na divisao! Verifique os pontos.\n"); 
                         continue; 
                     }
                 } 
                 else 
                 {
-                    if (doar == 1 && mao1J2 > pontos && pontos > 0) 
+                    if (doa == 1 && gousma1J2 > pts && pts > 0) 
                     { 
-                        mao1J2 = mao1J2 - pontos; 
-                        mao2J2 = mao2J2 + pontos; 
+                        gousma1J2 = gousma1J2 - pts; 
+                        gousma2J2 = gousma2J2 + pts; 
                     }
-                    else if (doar == 2 && mao2J2 > pontos && pontos > 0) 
+                    else if (doa == 2 && gousma2J2 > pts && pts > 0) 
                     { 
-                        mao2J2 = mao2J2 - pontos; 
-                        mao1J2 = mao1J2 + pontos; 
+                        gousma2J2 = gousma2J2 - pts; 
+                        gousma1J2 = gousma1J2 + pts; 
                     }
                     else 
                     { 
-                        printf("\nNao pode dividir assim!\n"); 
+                        printf("\nErro na divisao! Verifique os pontos.\n"); 
                         continue; 
                     }
                 }
             }
-
-            if (mao1J1 >= 5) { mao1J1 = 0; }
-            if (mao2J1 >= 5) { mao2J1 = 0; }
-            if (mao1J2 >= 5) { mao1J2 = 0; }
-            if (mao2J2 >= 5) { mao2J2 = 0; }
-
-            if ((mao1J1 == 0 && mao2J1 == 0) || (mao1J2 == 0 && mao2J2 == 0)) 
+            if (gousma1J1 >= 5) { gousma1J1 = 0; }
+            if (gousma2J1 >= 5) { gousma2J1 = 0; }
+            if (gousma1J2 >= 5) { gousma1J2 = 0; }
+            if (gousma2J2 >= 5) { gousma2J2 = 0; }
+            if ((gousma1J1 == 0 && gousma2J1 == 0) || (gousma1J2 == 0 && gousma2J2 == 0)) 
             {
-                printf("\n--- FIM DE JOGO! ---");
-                printf("\nResultado final - J1:[%d][%d] J2:[%d][%d]", mao1J1, mao2J1, mao1J2, mao2J2);
+                printf("\n--- FIM DE GUERRA! ---");
+                printf("\nStatus Final - J1:[%d][%d] J2:[%d][%d]", gousma1J1, gousma2J1, gousma1J2, gousma2J2);
                 rodando = 0;
             } 
             else 
             {
-                // Troca o turno
+                
                 if (turno == 1) 
                 {
                     turno = 2;
@@ -385,7 +385,7 @@ int jogoGousmasWar()
             }
         }
 
-        printf("\nDigite 1 para reiniciar ou 0 para o menu: "); 
+        printf("\nDigite 1 para nova batalha ou 0 para o menu: "); 
         scanf("%d", &jogarNovamente);
 
     } while (jogarNovamente == 1);
